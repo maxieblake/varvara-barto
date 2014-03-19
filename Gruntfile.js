@@ -141,7 +141,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             'images/**/*',
-            'js/{,*/}*.js',
+            'js/{,*/}*.js', //js shoud be uglify
             'fonts/{,*/}*.*' 
           ]
         }]

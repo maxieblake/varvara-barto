@@ -1,1 +1,19 @@
+
+// This is main SCSS file which includes all particles and it is compiled to CSS.
+// Core imports.
+@import "variables";
+@import "foundation/settings";
 @import "foundation";
+@import "compass";
+// @import "font-awesome/font-awesome";
+
+// Setting @font-face using compass.
+@include font-face("FuturaFuturis", font-files("FUTURAFUTURIS.otf"));
+@include font-face("FuturaFuturis Bold", font-files("FUTURAFUTURIS-BOLD.otf") "bold");
+@include font-face("FuturaFuturis Italic", font-files("FUTURAFUTURIS-ITALIC.otf") "italic");
+@include font-face("FuturaFuturis Bold Italic", font-files("FUTURAFUTURIS-BOLDITALIC.otf") "bold", "italic");
+
+// Particles
+@import "mixins";
+@import "base";
+@import "layout";

@@ -9523,3 +9523,24 @@ th.hide-for-touch {
 .touch th.show-for-touch {
   display: table-cell !important;
 }
+
+@font-face {
+  font-family: "FuturaFuturis";
+  src: url('../fonts/FUTURAFUTURIS.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "FuturaFuturis Bold";
+  src: url('../fonts/FUTURAFUTURIS-BOLD.otf') format('opentype') "bold";
+}
+
+@font-face {
+  font-family: "FuturaFuturis Italic";
+  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf') format('opentype') "italic";
+}
+
+@font-face {
+  font-family: "FuturaFuturis Bold Italic";
+  src: url('../fonts/italic');
+  src: url('../fonts/italic?#iefix') format('eot'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf') format('opentype') "bold";
+}
