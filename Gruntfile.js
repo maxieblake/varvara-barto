@@ -11,7 +11,7 @@ module.exports = function (grunt) {
       }, //html
       sass: {
         files: ['scss/**/*.scss'],
-        tasks: ['compass:dev']
+        tasks: ['sass:dist']
       }, //sass
       jade: {
         files: ['jade/*.jade'],
@@ -27,26 +27,42 @@ module.exports = function (grunt) {
         tasks: ['copy:dist']
       } //misc
     }, // watch
-
-    compass: {
-      dev: {
-        options: {
-          importPath: 'bower_components/foundation/scss',
-          sassDir: 'scss',
-          cssDir: 'dist/css',
-          generatedImagesDir: 'dist/images/generated',
-          imagesDir: 'dist/images',
-          javascriptsDir: 'dist/js',
-          fontsDir: 'dist/fonts',
-          httpImagesPath: '../images',
-          httpGeneratedImagesPath: '/images/generated',
-          httpFontsPath: '../fonts',
-          relativeAssets: false,
-          //assetCacheBuster: false,
-          outputStyle: 'expanded'
+      
+      // Using grunt-contrib-sass to get sourcemaps. 
+      // For 20.03.2014 there is no support in grunt-contrib-compasss for them.
+      sass: {
+        dist: {
+          options: {
+            style: 'expanded',
+            loadPath: 'bower_components/foundation/scss',
+            sourcemap: true,
+            trace: true,
+            compass: true
+            },
+          files: {
+            'dist/css/style.css': 'scss/style.scss' // 'destination': 'source'
+          } 
         }
-      }
-    },
+      },
+    // compass: {
+    //   dev: {
+    //     options: {
+    //       importPath: 'bower_components/foundation/scss',
+    //       sassDir: 'scss',
+    //       cssDir: 'dist/css',
+    //       generatedImagesDir: 'dist/images/generated',
+    //       imagesDir: 'dist/images',
+    //       javascriptsDir: 'dist/js',
+    //       fontsDir: 'dist/fonts',
+    //       httpImagesPath: '../images',
+    //       httpGeneratedImagesPath: '/images/generated',
+    //       httpFontsPath: '../fonts',
+    //       relativeAssets: false,
+    //       //assetCacheBuster: false,
+    //       outputStyle: 'expanded'
+    //     }
+    //   }
+    // },
 
     jade: {
       compile: {
@@ -150,6 +166,8 @@ module.exports = function (grunt) {
   });
 
     // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -162,6 +180,6 @@ module.exports = function (grunt) {
 
 
   // Tasks
-  grunt.registerTask('build', ['copy:dist', 'jade:compile', 'compass:dev' ]);
+  grunt.registerTask('build', ['copy:dist', 'jade:compile', 'sass:dist' ]);
   grunt.registerTask('default', ['build', 'watch']);
 };

@@ -1,0 +1,29 @@
+*, *::before, *::after {
+  @include box-sizing(border-box);
+}
+
+html {
+  font-size: 62.5%; //This way, 1rem = 10px
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+body {
+  color: $color-base;
+}
+
+#{headings()} {
+  @include font("Futura Futuris", $size: 20, $uppercase: true);
+  color: $color-base;
+}
+
+a {
+  @include link-colors($color-base, $color-accent, darken($color-accent, 15%));
+  //($normal, $hover, $active, $visited, $focus)
+  @include single-transition($duration: .2s);
+  text-decoration: none;
+}
+
+p {
+  @include font($size: 16);
+}

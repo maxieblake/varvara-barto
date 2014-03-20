@@ -1,0 +1,20 @@
+
+// Colors:
+$color-base:    #fff;
+$color-accent:  #00d840;
+$color-brand:   #001c4e;
+
+// Fonts:
+$font-base:     "Futura Futuris";
+$font-base-b:   "Futura Futuris Bold";
+$font-size-base: 16;
+
+//Foundation settings:
+$rem-base: 10px;
+$row-width: rem-calc(1200);
+$column-gutter: rem-calc(15);
+$total-columns: 12;
+
+//Compass 
+$default-transition-duration : 0.2s;
+$default-transition-function : ease-out;

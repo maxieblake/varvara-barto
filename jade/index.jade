@@ -18,7 +18,27 @@ html(lang="en")
     //if lt IE 7 
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. 
       Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    
+    nav.nav
+      object(class="nav-logo", type="image/svg+xml", data="images/logo.svg")
+      //- TODO: Add fallback image.
+      ul.nav-list
+        li.nav-list-item 
+          a(class="nav-list-item-link", href="#") main
+        li.nav-list-item 
+          a(class="nav-list-item-link", href="#") portfolio
+        li.nav-list-item 
+          a(class="nav-list-item-link", href="#") about
+        li.nav-list-item 
+          a(class="nav-list-item-link", href="#") contact
+      ul.lang
+        li.lang-item
+          a(href="#", class="active") EN
+        li.lang-item
+          a(href="#") RU
+    .main
+      .main-content
+        h1.main-content-primary-heading Varvara Barto
+        h2.main-content-secondary-heading fashion stylist <i class="diamond"></i> designer <i class="diamond"></i> artist
 
     //- Scripts
     //- ==========================================

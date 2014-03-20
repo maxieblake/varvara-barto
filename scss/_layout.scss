@@ -1,0 +1,104 @@
+// ==========================================================================
+// Global
+// ========================================================================== 
+
+.active {
+  color: $color-accent;
+}
+
+
+// ==========================================================================
+// Navigation
+// ========================================================================== 
+
+.nav {
+  @extend .hide-for-small-only;
+  @include x-rem(padding-left, 3.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 100%;
+  background-color: $color-brand;
+
+  &-logo {
+    @include x-rem(margin-top, 5);
+
+    &-active path {
+      fill: $color-accent;
+    }
+  }
+
+  &-list {
+    @include no-bullet();
+    @include x-rem(margin-top, 13);
+
+    &-item {
+      @include font($uppercase: true);
+      
+      &-link {
+        position: relative;
+        &:before {
+          @include single-transition();
+          @include diamond($color: $color-accent);
+          position: absolute;
+          top: 8px;
+          left: -15px;
+          opacity: 0;
+        }
+        &:hover:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.lang {
+  @include no-bullet();
+  @include x-rem(margin-top, 25);
+
+  &-item {
+    @include font($size: 14);
+  }
+}
+
+
+// ==========================================================================
+// Main
+// ========================================================================== 
+
+.main {
+  background-color: #290b31;
+  background: url(../images/main-bg.jpg) center center no-repeat;
+  // background position when fullscreen-img overflows 
+  background-position: 50% 50%;
+  @include background-size(cover);
+
+  &-content {
+    @include grid-row();
+    min-height: 700px;
+    @media #{$medium-up} {
+      padding-right: 150px;
+    }
+
+    &-primary-heading {
+      @include grid-column(12, $center: true);
+      @include x-rem(margin-top, 24);
+      @include font-size(72);
+      text-align: center;
+      line-height: 60px;
+    }
+
+    &-secondary-heading {
+      @include grid-column(12, $center: true);
+      @include font-size(32);
+      text-align: center;
+    }
+  }
+}
+
+.diamond:before {
+  @include diamond();
+  @include x-rem(margin, 0 .2 .5 1.2);
+}
