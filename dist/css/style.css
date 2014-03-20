@@ -1346,7 +1346,7 @@ select {
   display: block;
   margin-bottom: 0 !important;
 }
-.accordion dd.active > a {
+.accordion dd.active > a, .accordion dd.active-nav > a {
   background: #e8e8e8;
 }
 .accordion dd > a {
@@ -1364,7 +1364,7 @@ select {
   display: none;
   padding: 0.9375rem;
 }
-.accordion .content.active {
+.accordion .content.active, .accordion .content.active-nav {
   display: block;
   background: white;
 }
@@ -4676,7 +4676,7 @@ kbd {
   -o-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
 }
-.orbit-container .orbit-slides-container > *.active {
+.orbit-container .orbit-slides-container > *.active, .orbit-container .orbit-slides-container > *.active-nav {
   opacity: 1;
   top: 0;
   left: 0;
@@ -4826,7 +4826,7 @@ kbd {
   -webkit-border-radius: 1000px;
   border-radius: 1000px;
 }
-.orbit-bullets li.active {
+.orbit-bullets li.active, .orbit-bullets li.active-nav {
   background: #999999;
 }
 .orbit-bullets li:last-child {
@@ -5312,7 +5312,7 @@ dialog[open] {
 .side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
   color: #1cc7ff;
 }
-.side-nav li.active > a:first-child:not(.button) {
+.side-nav li.active > a:first-child:not(.button), .side-nav li.active-nav > a:first-child:not(.button) {
   color: #1cc7ff;
   font-weight: normal;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -5472,9 +5472,11 @@ dialog[open] {
 .sub-nav li a:hover {
   color: #737373;
 }
-.sub-nav dt.active a,
+.sub-nav dt.active a, .sub-nav dt.active-nav a,
 .sub-nav dd.active a,
-.sub-nav li.active a {
+.sub-nav dd.active-nav a,
+.sub-nav li.active a,
+.sub-nav li.active-nav a {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   font-weight: normal;
@@ -5483,9 +5485,11 @@ dialog[open] {
   cursor: default;
   color: white;
 }
-.sub-nav dt.active a:hover,
+.sub-nav dt.active a:hover, .sub-nav dt.active-nav a:hover,
 .sub-nav dd.active a:hover,
-.sub-nav li.active a:hover {
+.sub-nav dd.active-nav a:hover,
+.sub-nav li.active a:hover,
+.sub-nav li.active-nav a:hover {
   background: #0078a0;
 }
 
@@ -5748,7 +5752,7 @@ table tfoot tr td {
 .tabs dd > a:hover {
   background: #e1e1e1;
 }
-.tabs dd.active a {
+.tabs dd.active a, .tabs dd.active-nav a {
   background: white;
 }
 .tabs.radius dd:first-child a {
@@ -5792,7 +5796,7 @@ table tfoot tr td {
   padding: 0.9375rem 0;
   width: 100%;
 }
-.tabs-content > .content.active {
+.tabs-content > .content.active, .tabs-content > .content.active-nav {
   display: block;
   float: none;
 }
@@ -6150,11 +6154,11 @@ meta.foundation-mq-topbar {
   background: #272727;
   color: white;
 }
-.top-bar-section ul li.active > a {
+.top-bar-section ul li.active > a, .top-bar-section ul li.active-nav > a {
   background: #008cba;
   color: white;
 }
-.top-bar-section ul li.active > a:hover {
+.top-bar-section ul li.active > a:hover, .top-bar-section ul li.active-nav > a:hover {
   background: #0078a0;
   color: white;
 }
@@ -6311,13 +6315,13 @@ meta.foundation-mq-topbar {
   .top-bar-section li:not(.has-form) a:not(.button):hover {
     background: #272727;
   }
-  .top-bar-section li.active:not(.has-form) a:not(.button) {
+  .top-bar-section li.active:not(.has-form) a:not(.button), .top-bar-section li.active-nav:not(.has-form) a:not(.button) {
     padding: 0 15px;
     line-height: 45px;
     color: white;
     background: #008cba;
   }
-  .top-bar-section li.active:not(.has-form) a:not(.button):hover {
+  .top-bar-section li.active:not(.has-form) a:not(.button):hover, .top-bar-section li.active-nav:not(.has-form) a:not(.button):hover {
     background: #0078a0;
   }
   .top-bar-section .has-dropdown > a {
@@ -7971,20 +7975,20 @@ th.hide-for-touch {
 
 @font-face {
   font-family: "Futura Futuris";
-  src: url('../fonts/FUTURAFUTURIS.otf?1395331958') format('opentype');
+  src: url('../fonts/FUTURAFUTURIS.otf?1395342267') format('opentype');
 }
 @font-face {
   font-family: "Futura Futuris Bold";
-  src: url('../fonts/FUTURAFUTURIS-BOLD.otf?1395331958') format('opentype') "bold";
+  src: url('../fonts/FUTURAFUTURIS-BOLD.otf?1395342267') format('opentype') "bold";
 }
 @font-face {
   font-family: "Futura Futuris Italic";
-  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf?1395331958') format('opentype') "italic";
+  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf?1395342267') format('opentype') "italic";
 }
 @font-face {
   font-family: "Futura Futuris Bold Italic";
   src: url('../fonts/italic');
-  src: url('../fonts/italic?#iefix') format('embedded-opentype'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf?1395331958') format('opentype') "bold";
+  src: url('../fonts/italic?#iefix') format('embedded-opentype'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf?1395342267') format('opentype') "bold";
 }
 *, *::before, *::after {
   -moz-box-sizing: border-box;
@@ -8033,8 +8037,30 @@ p {
   letter-spacing: 1px;
 }
 
-.active {
+.active, .active-nav {
   color: #00d840;
+}
+
+.main-wrapper {
+  background: url("../images/main-bg.jpg") center center no-repeat;
+}
+
+.portfolio-wrapper {
+  background: url("../images/portfolio-bg.jpg") center center no-repeat;
+}
+
+.about-wrapper {
+  background: url("../images/about-bg.jpg") center center no-repeat;
+}
+
+.main-wrapper,
+.portfolio-wrapper,
+.about-wrapper {
+  background-position: 50% 50%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 
 .nav {
@@ -8099,6 +8125,25 @@ p {
   opacity: 1;
 }
 
+.active-nav:before {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background-color: #00d840;
+  margin-left: -15px;
+  margin-right: 6px;
+}
+
 .lang {
   list-style-image: none;
   list-style-type: none;
@@ -8114,15 +8159,6 @@ p {
 }
 
 .main {
-  background-color: #290b31;
-  background: url(../images/main-bg.jpg) center center no-repeat;
-  background-position: 50% 50%;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-.main-content {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -8134,11 +8170,11 @@ p {
   min-height: 700px;
 }
 @media only screen and (min-width: 40.063em) {
-  .main-content {
+  .main {
     padding-right: 150px;
   }
 }
-.main-content-primary-heading {
+.main-primary-heading {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   width: 100%;
@@ -8153,7 +8189,7 @@ p {
   text-align: center;
   line-height: 60px;
 }
-.main-content-secondary-heading {
+.main-secondary-heading {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   width: 100%;
@@ -8183,6 +8219,132 @@ p {
   background-color: white;
   margin: 0 2px 5px 12px;
   margin: 0 0.2rem 0.5rem 1.2rem;
+}
+
+.portfolio {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 120rem;
+  overflow: hidden;
+  *zoom: 1;
+  -moz-transition: min-height 0.2s ease-out;
+  -o-transition: min-height 0.2s ease-out;
+  -webkit-transition: min-height 0.2s ease-out;
+  transition: min-height 0.2s ease-out;
+  min-height: 700px;
+}
+@media only screen and (min-width: 64.063em) {
+  .portfolio {
+    min-height: 900px;
+  }
+}
+.portfolio-list {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width: 75%;
+  float: left;
+  margin-left: 8.33333% !important;
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  padding-top: 200px;
+  padding-top: 20rem;
+  display: block;
+  text-align: center;
+}
+.portfolio-list-item {
+  list-style-type: none;
+}
+.portfolio-list-item, .portfolio-list-item li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.portfolio-list-item-link {
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+  font-family: "Futura Futuris";
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.1rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  /*     @else                            { font-size: $padding - rem-calc(2); } */
+  background-color: #00d840;
+  border-color: #00d840;
+  color: white;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  font-size: 32px;
+  font-size: 3.2rem;
+  font-family: "Futura Futuris";
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-color: white;
+  color: white;
+  background: transparent;
+  margin-top: 60px;
+  margin-top: 6rem;
+  margin-right: 25px;
+  margin-right: 2.5rem;
+  padding-top: 15px;
+  padding-top: 1.5rem;
+  position: relative;
+  width: 230px;
+  height: 75px;
+}
+.portfolio-list-item-link:hover, .portfolio-list-item-link:focus {
+  background-color: #00d840;
+}
+.portfolio-list-item-link:hover, .portfolio-list-item-link:focus {
+  color: white;
+}
+.portfolio-list-item-link:hover {
+  background-color: transparent;
+  color: #00d840;
+}
+.portfolio-list-item-link:active {
+  -moz-transition: 0s all ease-in;
+  -o-transition: 0s all ease-in;
+  -webkit-transition: 0s all ease-in;
+  transition: 0s all ease-in;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 201, 59, 0.8);
+  color: #00591a;
+}
+.portfolio-list-item-link:hover:before {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  position: absolute;
+  top: -11px;
+  left: -1px;
+  background: transparent;
+  border: 3px solid white;
 }
 
 /*# sourceMappingURL=style.css.map */

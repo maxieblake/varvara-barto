@@ -71,3 +71,32 @@
   height: $size + px;
   background-color: $color;
 }
+
+
+// ==========================================================================
+// Transparent button
+// ========================================================================== 
+
+@mixin button-trans($bg-base: false, $bg-hover: $color-accent, $font-size: 20) {
+  // Foundation vars
+  $button-border-width: 3px;
+  $button-border-style: solid;
+  $button-function-factor: 0%;
+  @include button($bg: $bg-hover);
+  @include single-transition();
+  @include font($size: $font-size, $uppercase: true);
+  border-color: $color-base;
+  color: $color-base;
+  $bg-color: if($bg-base, $bg-base, transparent);
+  background: $bg-color;
+  &:hover {
+    background-color: transparent;
+    color: $color-accent;
+  }
+  &:active {
+    @include single-transition(0s, all, ease-in);
+    @include single-text-shadow(1px, 1px, 0px, false, rgba(255, 255, 255,.2));
+    background-color: rgba(darken($bg-hover, 3%), 0.8);
+    color: darken($bg-hover, 25%);
+  }
+}

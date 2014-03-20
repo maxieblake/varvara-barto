@@ -7,6 +7,20 @@
 }
 
 
+
+@each $page, $bg-img in (main-wrapper: main-bg, portfolio-wrapper: portfolio-bg, about-wrapper: about-bg ) {
+  .#{$page} {
+    background: url("../images/#{$bg-img}.jpg") center center no-repeat;
+  }
+}
+
+.main-wrapper,
+.portfolio-wrapper,
+.about-wrapper {
+  background-position: 50% 50%;
+  @include background-size(cover);
+}
+
 // ==========================================================================
 // Navigation
 // ========================================================================== 
@@ -54,6 +68,15 @@
   }
 }
 
+.active-nav {
+  @extend .active;
+  &:before {
+    @include diamond($color: $color-accent);
+    margin-left: -15px;
+    margin-right: 6px;
+  }
+}
+
 .lang {
   @include no-bullet();
   @include x-rem(margin-top, 25);
@@ -68,37 +91,78 @@
 // Main
 // ========================================================================== 
 
+
 .main {
-  background-color: #290b31;
-  background: url(../images/main-bg.jpg) center center no-repeat;
-  // background position when fullscreen-img overflows 
-  background-position: 50% 50%;
-  @include background-size(cover);
+  @include grid-row();
+  min-height: 700px;
+  @media #{$medium-up} {
+    padding-right: 150px;
+  }
 
-  &-content {
-    @include grid-row();
-    min-height: 700px;
-    @media #{$medium-up} {
-      padding-right: 150px;
-    }
+  &-primary-heading {
+    @include grid-column(12, $center: true);
+    @include x-rem(margin-top, 24);
+    @include font-size(72);
+    text-align: center;
+    line-height: 60px;
+  }
 
-    &-primary-heading {
-      @include grid-column(12, $center: true);
-      @include x-rem(margin-top, 24);
-      @include font-size(72);
-      text-align: center;
-      line-height: 60px;
-    }
-
-    &-secondary-heading {
-      @include grid-column(12, $center: true);
-      @include font-size(32);
-      text-align: center;
-    }
+  &-secondary-heading {
+    @include grid-column(12, $center: true);
+    @include font-size(32);
+    text-align: center;
   }
 }
+
 
 .diamond:before {
   @include diamond();
   @include x-rem(margin, 0 .2 .5 1.2);
+}
+
+// ==========================================================================
+// Portfolio
+// ========================================================================== 
+$button-font-family: $font-base;
+$button-font-weight: normal;
+
+.portfolio {
+  @include grid-row();
+  @include single-transition(min-height);
+  min-height: 700px;
+  
+  @media #{$large-up} {
+    min-height: 900px;
+  }
+  
+  &-list {
+    @include grid-column(9, $offset: 1);
+    @include no-bullet();
+    @include x-rem(padding-top, 20);
+    display: block;
+    text-align: center;
+
+    &-item {
+      @include inline-list();
+      
+      &-link {
+        @include button-trans($font-size: 32);
+        @include x-rem(margin-top, 6);
+        @include x-rem(margin-right, 2.5);
+        @include x-rem(padding-top, 1.5);
+        position: relative;
+        width: 230px;
+        height: 75px;
+
+        &:hover:before {
+          @include diamond(32);
+          position: absolute;
+          top: -11px;
+          left: -1px;
+          background: transparent;
+          border: 3px solid $color-base;
+        }
+      }
+    }
+  }
 }

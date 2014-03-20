@@ -23,7 +23,7 @@ html(lang="en")
       //- TODO: Add fallback image.
       ul.nav-list
         li.nav-list-item 
-          a(class="nav-list-item-link", href="#") main
+          a(class="nav-list-item-link, active-nav", href="#") main
         li.nav-list-item 
           a(class="nav-list-item-link", href="#") portfolio
         li.nav-list-item 
@@ -35,10 +35,24 @@ html(lang="en")
           a(href="#", class="active") EN
         li.lang-item
           a(href="#") RU
-    .main
-      .main-content
-        h1.main-content-primary-heading Varvara Barto
-        h2.main-content-secondary-heading fashion stylist <i class="diamond"></i> designer <i class="diamond"></i> artist
+    .main-wrapper
+      section.main
+        h1.main-primary-heading Varvara Barto
+        h2.main-secondary-heading fashion stylist <i class="diamond"></i> designer <i class="diamond"></i> artist
+    .portfolio-wrapper
+      section.portfolio
+        ul.portfolio-list
+          li.portfolio-list-item
+            a(class="portfolio-list-item-link", href="#") Recent
+          li.portfolio-list-item
+            a(class="portfolio-list-item-link", href="#") Styling
+          li.portfolio-list-item
+            a(class="portfolio-list-item-link", href="#") Design
+          li.portfolio-list-item
+            a(class="portfolio-list-item-link", href="#") Hair Style
+          li.portfolio-list-item
+            a(class="portfolio-list-item-link", href="#") Sketches
+
 
     //- Scripts
     //- ==========================================
