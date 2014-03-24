@@ -27,3 +27,8 @@ a {
 p {
   @include font($size: 16);
 }
+
+li {
+  @include no-bullet;
+  @include font($size: 20);
+}

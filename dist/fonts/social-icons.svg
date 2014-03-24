@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="social-icons" horiz-adv-x="1000" >
+<font-face font-family="social-icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="instagramm" unicode="&#xe801;" d="m760 54v362h-75q11-35 11-73q0-71-36-130t-97-94t-134-35q-110 0-188 76t-78 183q0 38 11 73h-79v-362q0-14 10-24t25-10h596q14 0 24 10t10 24z m-158 298q0 69-51 118t-122 49q-71 0-121-49t-51-118t51-118t121-49q72 0 122 49t51 118z m158 201v92q0 15-11 27t-27 11h-98q-16 0-27-11t-11-27v-92q0-17 11-28t27-11h98q16 0 27 11t11 28z m97 116v-638q0-45-32-77t-78-33h-637q-45 0-78 33t-32 77v638q0 45 32 77t78 33h637q45 0 78-33t32-77z" horiz-adv-x="857.1" />
+<glyph glyph-name="vkontakte" unicode="&#xe802;" d="m1070 560q13-36-84-164q-13-18-36-48q-44-56-50-73q-10-23 7-45q10-12 46-46h0l1 0l0-1l1-1q79-73 107-123q2-3 4-7t3-15t0-19t-14-15t-33-7l-143-3q-13-2-31 3t-29 12l-11 7q-17 12-39 36t-38 43t-34 32t-32 9q-1 0-4-2t-10-8t-12-16t-9-29t-4-44q0-8-2-15t-4-10l-2-3q-10-11-30-12h-64q-40-3-81 9t-74 29t-57 37t-40 32l-14 14q-5 5-15 16t-40 51t-59 84t-68 118t-73 152q-4 9-4 15t2 9l2 3q9 11 32 11l153 1q7-1 13-4t9-4l3-2q9-6 13-18q11-28 26-58t23-45l9-16q16-34 31-58t27-38t23-22t19-8t15 3q1 1 3 3t7 12t7 26t5 46t0 69q-1 23-5 41t-7 26l-4 6q-14 19-47 24q-8 2 3 14q9 10 21 17q29 14 133 13q46-1 75-7q12-3 19-8t12-13t5-18t2-26t0-30t-2-40t0-46q0-6-1-23t0-27t2-22t6-22t13-14q4-1 9-2t15 6t21 19t29 38t38 60q33 58 60 125q2 6 5 10t6 6l2 2l3 1t8 2t11 0l160 1q22 3 36-1t17-10z" horiz-adv-x="1071.4" />
+<glyph glyph-name="facebook" unicode="&#xe803;" d="m124-150v469h-124v169h124v145c0 113 73 217 242 217c69 0 119-7 119-7l-4-157s-51 0-108 0c-60 0-70-28-70-74v-124h183l-8-169h-175v-469h-179" horiz-adv-x="486" />
+<glyph glyph-name="vkontakte-rect" unicode="&#xe800;" d="m1000 761v-824q0-36-26-62t-62-26h-824q-36 0-62 26t-26 62v824q0 36 26 62t62 26h824q36 0 62-26t26-62z m-240-528q0 58-32 96t-91 49v3q39 16 61 51t22 78q0 46-19 76t-56 42t-68 17t-78 4h-219v-600h240q47 0 88 10t76 29t56 58t20 87z m-193 246q0-20-7-33t-15-20t-26-10t-28-3t-31-1h-30v127h39q18 0 28 0t25-4t24-9t15-18t6-29z m38-243q0-12-3-22t-7-18t-12-14t-15-10t-18-6t-18-4t-21-2t-20-1h-61v150h77t23-1t24-3t19-8t18-13t10-20t4-28z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

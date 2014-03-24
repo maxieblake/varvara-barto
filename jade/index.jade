@@ -18,6 +18,7 @@ html(lang="en")
     //if lt IE 7 
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. 
       Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    
     nav.nav
       object(class="nav-logo", type="image/svg+xml", data="images/logo.svg")
       //- TODO: Add fallback image.
@@ -35,10 +36,12 @@ html(lang="en")
           a(href="#", class="active") EN
         li.lang-item
           a(href="#") RU
+    
     .main-wrapper
       section.main
         h1.main-primary-heading Varvara Barto
         h2.main-secondary-heading fashion stylist <i class="diamond"></i> designer <i class="diamond"></i> artist
+    
     .gallery-wrapper
       ul.gallery
         li.gallery-item
@@ -79,9 +82,44 @@ html(lang="en")
             a(class="portfolio-list-item-link", href="#") Hair Style
           li.portfolio-list-item
             a(class="portfolio-list-item-link", href="#") Sketches
+    
     .about-wrapper
-      .about
-        
+      section.about
+        article.about-item
+          .about-item-img-container
+            img(class="about-item-img", src="images/about-first.jpg", alt="")
+          .about-item-overlay
+          .about-item-text
+            h3.large-numbers 50
+            h3.larger-heading публикаций
+            p.uppercase в различных изданиях украины и мира
+        article.about-item
+          .about-item-img-container
+            img(class="about-item-img" src="images/about-second.jpg", alt="")
+          .about-item-overlay
+          .about-item-text
+            h3 публикации в изданиях 
+            p Pink (Украина), PiNK revista (Доминикана), XXL (Украина, Россия), 
+              | Playboy (Чехия, Украина, Словакия), Baavi Magazine, SwO (Литва), 
+              | Kismet (США), Bast (Дания), Confashion Mag (Польша), 
+              | Fault Magazine (Великобритания), NIF Magazine, 2bemag (Испания),
+              | FOTOVIDEO (Чехия), Inside Brackets (Франция), USE magazine (USA)
+        article.about-item
+          .about-item-img-container
+            img(class="about-item-img", src="images/about-third.jpg", alt="")
+          .about-item-overlay
+          ul.about-item-list
+            li.about-item-list-item КНУКиМ (диплом магистра) по специальности Дизайн одежды
+            li.about-item-list-item Финалист конкурса Style.IT, участник мастер-класса стилиста Vogue Italia Алессандро Буззи в 2012 году
+            li.about-item-list-item С декабря 2013 года - колумнист Izum.ua
+        h2.social-hading Социальные сети
+        ul.social
+          li.icon-facebook
+          li.icon-vkontakte
+          li.icon-instagram
+          
+
+
 
     //- Scripts
     //- ==========================================

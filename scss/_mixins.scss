@@ -100,3 +100,92 @@
     color: darken($bg-hover, 25%);
   }
 }
+
+// ==========================================================================
+// Foundation grid mixin with all predefined 'grid-column' options support
+// ==========================================================================
+
+@mixin grid(
+  // default variable declaration for 'grid' mixin
+  $small, 
+  $medium: false, 
+  $large: false, 
+  // declaring variables to provide support for all predefined 'grid-column' options
+  $has-last-column: false, 
+  $has-center: false,
+  $has-offset: false, 
+  $has-push: false, 
+  $has-pull: false, 
+  $has-collapse: false, 
+  $has-float: true,
+  $has-position: false,
+  // if only has small
+  $has-s-center: false,
+  // if medium states varies
+  $has-m-last-column: false, 
+  $has-m-center: false,
+  $has-m-offset: false, 
+  $has-m-push: false, 
+  $has-m-pull: false, 
+  $has-m-collapse: false, 
+  $has-m-float: false,
+  $has-m-position: false,
+  // if large states varies
+  $has-l-last-column: false, 
+  $has-l-center: false, 
+  $has-l-offset: false, 
+  $has-l-push: false, 
+  $has-l-pull: false, 
+  $has-l-collapse: false, 
+  $has-l-float: false,
+  $has-l-position: false) {
+
+  // Mobile-first: $small-range: (0em, 40em); [0, 640px]
+  @include grid-column(
+    $small,
+    // providing support for all predefined 'grid-column' options at small-up
+    $last-column: $has-last-column, 
+    $center: if($has-s-center, $has-s-center, $has-center), 
+    $offset: $has-offset, 
+    $push: $has-push, 
+    $pull: $has-pull, 
+    $collapse: $has-collapse, 
+    $float: $has-float,
+    $position: $has-position);
+
+  // Medium size-up: $medium-range: (40.063em, 64em); [641px, 1024px]
+  @if $medium {
+    @media #{$medium-up} {
+      @include grid-column(
+        $medium,
+        // providing support for all predefined 'grid-column' options at medium-up
+        $last-column: if($has-m-last-column, $has-m-last-column, $has-last-column),
+        $center: $has-m-center,
+        $offset: if($has-m-offset, $has-m-offset, $has-offset), 
+        $push: if($has-m-push, $has-m-push, $has-push), 
+        $pull: if($has-m-pull, $has-m-pull, $has-pull), 
+        $collapse: if($has-m-collapse, $has-m-collapse, $has-collapse),
+        $float: if($has-m-float, $has-m-float, $has-float),
+        $position: if($has-m-position, $has-m-position, $has-position)
+        );
+    }
+  } // if has $medium argument
+
+  // Large size-up: $large-range: (64.063em, 90em); [1025px, 1440px]
+  @if $large {
+    @media #{$large-up} {
+      @include grid-column(
+        $large,
+        // providing support for all predefined 'grid-column' options at large-up
+        $last-column: if($has-l-last-column, $has-l-last-column, $has-last-column),
+        $center: $has-l-center,
+        $offset: if($has-l-offset, $has-l-offset, $has-offset), 
+        $push: if($has-l-push, $has-l-push, $has-push), 
+        $pull: if($has-l-pull, $has-l-pull, $has-pull), 
+        $collapse: if($has-l-collapse, $has-l-collapse, $has-collapse),
+        $float: if($has-l-float, $has-l-float, $has-float),
+        $position: if($has-l-position, $has-l-position, $has-position)
+        );
+    } 
+  } // if has $large argument
+}

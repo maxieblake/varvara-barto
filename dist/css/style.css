@@ -7974,21 +7974,60 @@ th.hide-for-touch {
 }
 
 @font-face {
+  font-family: 'social-icons';
+  src: url("../fonts/social-icons.eot");
+  src: url("../fonts/social-icons.eot?#iefix") format("embedded-opentype"), url("../fonts/social-icons.woff") format("woff"), url("../fonts/social-icons.ttf") format("truetype"), url("../fonts/social-icons.svg#social-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"]:before, [class*="icon-"]:before {
+  font-family: "social-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+}
+
+.icon-instagramm:before {
+  content: '\e801';
+}
+
+.icon-vkontakte:before {
+  content: '\e802';
+}
+
+.icon-facebook:before {
+  content: '\e803';
+}
+
+.icon-vkontakte-rect:before {
+  content: '\e800';
+}
+
+@font-face {
   font-family: "Futura Futuris";
-  src: url('../fonts/FUTURAFUTURIS.otf?1395401015') format('opentype');
+  src: url('../fonts/FUTURAFUTURIS.otf?1395693357') format('opentype');
 }
 @font-face {
   font-family: "Futura Futuris Bold";
-  src: url('../fonts/FUTURAFUTURIS-BOLD.otf?1395401015') format('opentype') "bold";
+  src: url('../fonts/FUTURAFUTURIS-BOLD.otf?1395693357') format('opentype') "bold";
 }
 @font-face {
   font-family: "Futura Futuris Italic";
-  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf?1395401015') format('opentype') "italic";
+  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf?1395693357') format('opentype') "italic";
 }
 @font-face {
   font-family: "Futura Futuris Bold Italic";
   src: url('../fonts/italic');
-  src: url('../fonts/italic?#iefix') format('embedded-opentype'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf?1395401015') format('opentype') "bold";
+  src: url('../fonts/italic?#iefix') format('embedded-opentype'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf?1395693357') format('opentype') "bold";
 }
 *, *::before, *::after {
   -moz-box-sizing: border-box;
@@ -8037,8 +8076,22 @@ p {
   letter-spacing: 1px;
 }
 
+li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  font-size: 20px;
+  font-size: 2rem;
+  font-family: "Futura Futuris";
+  letter-spacing: 1px;
+}
+
 .active, .active-nav {
   color: #00d840;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .main-wrapper {
@@ -8347,6 +8400,25 @@ p {
   border: 3px solid white;
 }
 
+.gallery-wrapper {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 120rem;
+  overflow: hidden;
+  *zoom: 1;
+  width: 100%;
+  max-width: 100%;
+}
+@media only screen and (min-width: 40.063em) {
+  .gallery-wrapper {
+    padding-right: 150px;
+    padding-right: 15rem;
+  }
+}
+
 .gallery {
   display: block;
   padding: 0;
@@ -8556,24 +8628,6 @@ p {
     padding-right: 0;
   }
 }
-.gallery-wrapper {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 120rem;
-  overflow: hidden;
-  *zoom: 1;
-  width: 100%;
-  max-width: 100%;
-}
-@media only screen and (min-width: 40.063em) {
-  .gallery-wrapper {
-    padding-right: 150px;
-    padding-right: 15rem;
-  }
-}
 .gallery-item {
   position: relative;
 }
@@ -8602,7 +8656,152 @@ p {
 }
 
 .about {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 120rem;
+  overflow: hidden;
+  *zoom: 1;
   min-height: 2280px;
+}
+.about-item {
+  margin-bottom: 220px;
+  margin-bottom: 22rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
+  min-height: 245px;
+  overflow: visible;
+}
+.about-item:first-child {
+  margin-top: 220px;
+  margin-top: 22rem;
+}
+@media only screen and (min-width: 40.063em) {
+  .about-item {
+    margin-bottom: 500px;
+    margin-bottom: 50rem;
+  }
+}
+.about-item-img-container, .about-item-overlay {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-left: 35px;
+  margin-left: 3.5rem;
+  margin-top: 35px;
+  margin-top: 3.5rem;
+  padding-left: 8px;
+  padding-left: 0.75rem;
+  position: relative;
+  float: left;
+  width: 170px;
+  height: 170px;
+  overflow: hidden;
+  border: 10px solid #00d840;
+}
+@media only screen and (max-width: 40em) {
+  .about-item-img-container, .about-item-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.about-item-img {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  max-width: 215px;
+  top: -21%;
+  left: -21%;
+}
+.about-item-overlay {
+  position: absolute;
+  top: -70px;
+  top: -7rem;
+  left: 7.5px;
+  left: .75rem;
+  border: 10px solid #001c4e;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.about-item-text, .about-item-list {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width: 83.33333%;
+  float: left;
+  margin-left: 8.33333% !important;
+  padding-top: 250px;
+  padding-top: 25rem;
+  text-align: center;
+}
+@media only screen and (min-width: 40.063em) {
+  .about-item-text, .about-item-list {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    width: 41.66667%;
+    float: left;
+    margin-left: 8.33333% !important;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  .about-item-text, .about-item-list {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    width: 50%;
+    float: left;
+    margin-left: 8.33333% !important;
+  }
+}
+@media only screen and (min-width: 40.063em) {
+  .about-item-text {
+    padding-top: 30px;
+    padding-top: 3rem;
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 40.063em) {
+  .about-item-list {
+    padding-top: 15px;
+    padding-top: 1.5rem;
+    text-align: left;
+  }
+}
+.about-item-list-item {
+  margin-bottom: 20px;
+  margin-bottom: 2rem;
+}
+
+.large-numbers {
+  font-size: 92px;
+  font-size: 9.2rem;
+  padding-right: 15px;
+  padding-right: 1.5rem;
+  float: left;
+  line-height: 80px;
+}
+@media only screen and (max-width: 40em) {
+  .large-numbers {
+    width: 100%;
+  }
+}
+
+.larger-heading {
+  padding-top: 8px;
+  padding-top: 0.75rem;
+  font-size: 26px;
+  font-size: 2.6rem;
+  line-height: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
