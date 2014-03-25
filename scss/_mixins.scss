@@ -39,6 +39,7 @@
   #{$property}: $rem-values;
 }
 
+
 // ==========================================================================
 // Fonts
 // ========================================================================== 
@@ -57,6 +58,7 @@
   }
 }
 
+
 // ==========================================================================
 // Diamond figure
 // ========================================================================== 
@@ -65,8 +67,6 @@
   @include rotate(-45deg);
   @include transform-origin(0, 100%);
   content: "";
-  display: inline-block;
-  position: relative;
   width: $size + px; 
   height: $size + px;
   background-color: $color;
@@ -101,6 +101,29 @@
   }
 }
 
+
+// ==========================================================================
+// Pseudo-class helper
+// ========================================================================== 
+
+@mixin pseudo($top: 0, $left: 0, $size: false, $width: false, $height: false, $position: absolute) {
+  content: "";
+  position: $position;
+  top: $top;
+  left: $left;
+
+  @if $size {
+    $size-w: if($width, $width, $size);
+    $size-h: if($height, $height, $size);
+    width: $size-w;
+    height: $size-h;
+  } @else {
+    width: if($width, $width, 100%);
+    height: if($height, $height, 100%);
+  }
+}  
+
+
 // ==========================================================================
 // Foundation grid mixin with all predefined 'grid-column' options support
 // ==========================================================================
@@ -113,7 +136,7 @@
   // declaring variables to provide support for all predefined 'grid-column' options
   $has-last-column: false, 
   $has-center: false,
-  $has-offset: false, 
+  $has-s-offset: false, 
   $has-push: false, 
   $has-pull: false, 
   $has-collapse: false, 
@@ -146,7 +169,7 @@
     // providing support for all predefined 'grid-column' options at small-up
     $last-column: $has-last-column, 
     $center: if($has-s-center, $has-s-center, $has-center), 
-    $offset: $has-offset, 
+    $offset: $has-s-offset, 
     $push: $has-push, 
     $pull: $has-pull, 
     $collapse: $has-collapse, 
@@ -161,7 +184,7 @@
         // providing support for all predefined 'grid-column' options at medium-up
         $last-column: if($has-m-last-column, $has-m-last-column, $has-last-column),
         $center: $has-m-center,
-        $offset: if($has-m-offset, $has-m-offset, $has-offset), 
+        $offset: if($has-m-offset, $has-m-offset, false), 
         $push: if($has-m-push, $has-m-push, $has-push), 
         $pull: if($has-m-pull, $has-m-pull, $has-pull), 
         $collapse: if($has-m-collapse, $has-m-collapse, $has-collapse),
@@ -179,7 +202,7 @@
         // providing support for all predefined 'grid-column' options at large-up
         $last-column: if($has-l-last-column, $has-l-last-column, $has-last-column),
         $center: $has-l-center,
-        $offset: if($has-l-offset, $has-l-offset, $has-offset), 
+        $offset: if($has-l-offset, $has-l-offset, false), 
         $push: if($has-l-push, $has-l-push, $has-push), 
         $pull: if($has-l-pull, $has-l-pull, $has-pull), 
         $collapse: if($has-l-collapse, $has-l-collapse, $has-collapse),

@@ -10,7 +10,7 @@
   text-transform: uppercase;
 }
 
-@each $page, $bg-img in (main-wrapper: main-bg, portfolio-wrapper: portfolio-bg, about-wrapper: about-bg ) {
+@each $page, $bg-img in (main-wrapper: main-bg, portfolio-wrapper: portfolio-bg, about-wrapper: about-bg) {
   .#{$page} {
     background: url("../images/#{$bg-img}.jpg") center center no-repeat;
   }
@@ -75,8 +75,11 @@
 
 .active-nav {
   @extend .active;
+
   &:before {
     @include diamond($color: $color-accent);
+    display: inline-block;
+    position: relative;
     margin-left: -15px;
     margin-right: 6px;
   }
@@ -122,6 +125,8 @@
 .diamond:before {
   @include diamond();
   @include x-rem(margin, 0 .2 .5 1.2);
+  display: inline-block;
+  position: relative;
 }
 
 
@@ -156,14 +161,19 @@
         position: relative;
         width: 230px;
         height: 75px;
+        
+        &:before {
+          @include pseudo($top: -17px, $left: -17px, $size: 32px);
+          @include transform(rotate(-45deg) scale(.8));
+          @include single-transition(all, .3s, ease);
+          @include opacity(0);
+          background-color: transparent;
+          border: 3px solid $color-base;
+        }
 
         &:hover:before {
-          @include diamond(32);
-          position: absolute;
-          top: -11px;
-          left: -1px;
-          background: transparent;
-          border: 3px solid $color-base;
+          @include transform(rotate(45deg), scale(1));
+          @include opacity(1);
         }
       }
     }
@@ -174,18 +184,8 @@
 // ==========================================================================
 // Gallary
 // ==========================================================================
-// TODO: => Add hover animation for gallery images.
+// TODO: => [×] Add hover animation for gallery images. 
 
-@mixin color-overlay ($color: $color-brand ) {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: $color;
-  opacity: .3;
-}
 
 .gallery-wrapper {
   @include grid-row();
@@ -201,8 +201,12 @@
   @include block-grid(2, 0);
   background-color: $color-brand;
 
+  // Image grid generator. 
+  // The loop creates @media breakpoints for adding new column of images 
+  // when $origin-img-width is reached.
   @for $i from 2 through 5 {
-    @media only screen and (min-width: ($i * 350 + 150) + px) { 
+    $origin-img-width: 350; // [!] Max img width will be ($img-width - 4)px because of [?]inline-blocks
+    @media only screen and (min-width: ($i * $origin-img-width + 150) + px) { 
       @include block-grid($i + 1, 0);
     }
   }
@@ -211,42 +215,67 @@
     position: relative;
 
     &:nth-child(odd) {
-      .gallery-img-container:after {
-        @include color-overlay();
+      .gallery-item-overlay {
+        &:before {
+          background-color: $color-brand;
+        }
+        
+        &:after {
+          background-image: url("../images/empty-diamond-blue.png");
+        }
       }
     }
 
     &:nth-child(even) {
-      .gallery-img-container:after {
-        @include color-overlay($color-accent);
+      .gallery-item-overlay {
+        &:before {
+          background-color: $color-accent;
+        }
+
+        &:after {
+          background-image: url("../images/empty-diamond-green.png");
+        }
       }
     }
 
-    .gallery-img-container:hover:after {
-      opacity: 0;
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      
+      &:before {
+        @include pseudo();
+        @include single-transition(all, .5s, ease);
+        @include opacity(.25);
+        //background-color: $color-accent;
+      }
+    
+      &:after {
+        @include pseudo($top: -20%, $left: -20%, $size: 140%);
+        @include transform(scale(.75) rotate(-90deg));
+        @include opacity(0);
+        @include single-transition(all, .5s, ease); 
+        //background-image: url("../images/empty-diamond-green.png");
+        background-size: 100% 100%;
+      }
+
+      &:hover {
+        
+        &:after {
+          @include transform(scale(1.42) rotate(0));
+          @include opacity(1);
+        }
+
+        &:before {
+          @include opacity(0);
+        }
+      }
     }
   } 
-  
-  &-img-container:hover:before {
- 
-
-  // @include rotate(-45deg);
-  // @include transform-origin(0, 100%);
-  // content: "";
-  // display: block;
-  // position: absolute;
-  // top: 29.333%;
-  // left: 50%;
-  // width: 70.5%; 
-  // height: 70.5%;
-  // background-color: $color-accent;
-  }
-
-  &-img {
-
-  }
-}
-
+} 
 
 // ==========================================================================
 // About
@@ -259,14 +288,18 @@
 
   &-item {
     @include x-rem(margin-bottom, 22);
-    @include grid-column(12);
+    @include grid(12, 10, 10);
     @include clearfix();
     position: relative;
     min-height: 245px;
     overflow: visible;
-
+    
     &:first-child {
       @include x-rem(margin-top, 22);
+    }
+
+    &:last-of-type {
+      @include x-rem(margin-bottom, 25);
     }
 
     @media #{$medium-up} {
@@ -314,8 +347,9 @@
       background-color: rgba($color-base, .3);
     }
 
-    &-text, &-list {
-      @include grid(10, 5, 6, $has-offset: 1);
+    &-text, 
+    &-list {
+      @include grid(10, 6, 7, $has-s-offset: 1);
       @include x-rem(padding-top, 25);
       text-align: center;
     }
@@ -358,18 +392,67 @@
 }
 
 
+// ==========================================================================
+// Social block
+// ========================================================================== 
 
+.social {
+  @include grid(12);
 
-@mixin pseudo($top: 0, $left: 0, $size: false, $width: 100%, $position: absolute) {
-  content: "";
-  position: $position;
-  top: $top;
-  left: $left;
+  @media #{$medium-up} {
+    @include x-rem(padding-right, 15);
+  }
 
-  @if $size {
-    $width: 100%;
-    $height: 100%;
-    width: $width;
-    height: $height;
+  &-heading {
+    text-align: center;
+  }
+
+  &-list {
+    @include x-rem(margin-top, 8);
+    @include x-rem(margin-bottom, 15);
+    text-align: center;
+    
+    &-item {
+      @include font-size(32);
+      @include x-rem(margin-right, 10);
+      @include transition();
+      position: relative;
+      float: none;
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+
+      &-link {
+        @include rotate(45deg);
+        position: absolute;
+        top: -23%;
+        left: -23%;
+        width: 150%;
+        height: 150%;
+        z-index: 2;
+      }
+
+      &:last-child {
+        @include x-rem(margin-right, 0);
+      }
+
+      &:after {
+        @include pseudo($top: -23%, $left: -23%, $width: 72px, $height: 72px);
+        @include rotate(45deg);
+        @include transition();
+        border: 3px solid $color-base;
+        background-color: transparent;
+        z-index: 1;
+      }
+
+      &:hover {
+        color: $color-accent;
+
+        &:after {
+          border: 3px solid $color-accent;
+        }
+      }
+    }
   }
 }
+

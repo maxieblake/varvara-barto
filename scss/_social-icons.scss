@@ -1,10 +1,11 @@
 @font-face {
   font-family: 'social-icons';
   src: url('../fonts/social-icons.eot');
-  src: url('../fonts/social-icons.eot?#iefix') format('embedded-opentype'),
+  src: url('../fonts/social-icons.svg#social-icons') format('svg'),
+       url('../fonts/social-icons.eot?#iefix') format('embedded-opentype'),
        url('../fonts/social-icons.woff') format('woff'),
-       url('../fonts/social-icons.ttf') format('truetype'),
-       url('../fonts/social-icons.svg#social-icons') format('svg');
+       url('../fonts/social-icons.ttf') format('truetype');
+
   font-weight: normal;
   font-style: normal;
 }
@@ -25,12 +26,12 @@
   font-weight: normal;
   speak: none;
  
-  display: inline-block;
+  //display: inline-block;
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
   text-align: center;
-  /* opacity: .8; */
+  // opacity: .8; */
  
   // For safety - reset parent styles, that can break glyph codes*/
   //font-variant: normal;
