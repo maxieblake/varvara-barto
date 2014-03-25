@@ -8012,20 +8012,20 @@ th.hide-for-touch {
 
 @font-face {
   font-family: "Futura Futuris";
-  src: url('../fonts/FUTURAFUTURIS.otf?1395753718') format('opentype');
+  src: url('../fonts/FUTURAFUTURIS.otf?1395761016') format('opentype');
 }
 @font-face {
   font-family: "Futura Futuris Bold";
-  src: url('../fonts/FUTURAFUTURIS-BOLD.otf?1395753718') format('opentype') "bold";
+  src: url('../fonts/FUTURAFUTURIS-BOLD.otf?1395761016') format('opentype') "bold";
 }
 @font-face {
   font-family: "Futura Futuris Italic";
-  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf?1395753718') format('opentype') "italic";
+  src: url('../fonts/FUTURAFUTURIS-ITALIC.otf?1395761016') format('opentype') "italic";
 }
 @font-face {
   font-family: "Futura Futuris Bold Italic";
   src: url('../fonts/italic');
-  src: url('../fonts/italic?#iefix') format('embedded-opentype'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf?1395753718') format('opentype') "bold";
+  src: url('../fonts/italic?#iefix') format('embedded-opentype'), url('../fonts/FUTURAFUTURIS-BOLDITALIC.otf?1395761016') format('opentype') "bold";
 }
 *, *::before, *::after {
   -moz-box-sizing: border-box;
@@ -8293,16 +8293,44 @@ li {
 .portfolio-list {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  width: 75%;
+  width: 83.33333%;
   float: left;
   margin-left: 8.33333% !important;
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
-  padding-top: 200px;
-  padding-top: 20rem;
   display: block;
   text-align: center;
+}
+@media only screen and (min-width: 40.063em) {
+  .portfolio-list {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    width: 66.66667%;
+    float: left;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  .portfolio-list {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    width: 83.33333%;
+    float: left;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .portfolio-list {
+    padding-top: 80px;
+    padding-top: 8rem;
+    padding-bottom: 80px;
+    padding-bottom: 8rem;
+  }
+}
+@media only screen and (min-width: 64.063em) {
+  .portfolio-list {
+    padding-top: 200px;
+    padding-top: 20rem;
+  }
 }
 .portfolio-list-item {
   list-style-type: none;
